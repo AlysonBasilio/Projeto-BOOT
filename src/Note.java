@@ -30,4 +30,23 @@ public class Note {
 		gravarArq.printf(conteudo+"%n");
 		arq.close();
 	}
+	
+	public String getConteudo(){
+		return conteudo;
+	}
+	
+	public String exibeTodasAsNotas() throws FileNotFoundException, IOException{
+		BufferedReader buffRead = new BufferedReader(new FileReader("Todas_anotacoes.txt"));
+		String linha = "";
+		String result = "";
+		while (true) {
+			if (linha != null) {
+				System.out.println(linha);
+				result+=("%s"+linha);
+			} else break; 
+			linha = buffRead.readLine(); 
+		} 
+		buffRead.close();
+		return result;
+	}
 }
